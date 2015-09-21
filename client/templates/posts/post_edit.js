@@ -2,7 +2,7 @@ Template.postEdit.created = function() {
   Session.set('postEditErrors', {});
 }
 
-template.postEdit.helpers({
+Template.postEdit.helpers({
   errorMessage: function(field){
     return Session.get('psotEditErrors')[field];
   },
@@ -10,7 +10,6 @@ template.postEdit.helpers({
     return !!Session.get('postEditErrors')[field] ? 'has-error' : '';
   }
 });
-
 
 
 Template.postEdit.events({
@@ -23,6 +22,12 @@ Template.postEdit.events({
       url: $(e.target).find('[name=url]').val(),
       title: $(e.target).find('[name=title]').val()
     }
+
+    var errors = validatePost(postProperties);
+
+    if (errors.title || errors.url)
+      return Session.set('postEditErrors', errors);
+
 
     Posts.update(currentPostId,
       {$set: postProperties}, function(error){
