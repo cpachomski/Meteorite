@@ -32,24 +32,24 @@ if (Posts.find().count() === 0 ) {
 
   Comments.insert({
     postId: telescopeId,
-    userId: sacha._id,
-    author: sacha.profile.name,
+    userId: bobDole._id,
+    author: bobDole.profile.name,
     submitted: new Date(now - 3 * 3600 * 1000),
     body: 'You sure can Tom!'
   });
 
   Posts.insert({
     title: 'Meteor',
-    userId: tom._id,
-    author: tom.profile.name,
+    userId: donaldTrump._id,
+    author: donaldTrump.profile.name,
     url: 'http://meteor.com',
     submitted: new Date(now - 10 * 3600 * 1000)
   });
 
   Posts.insert({
     title: 'The Meteor Book',
-    userId: tom._id,
-    author: tom.profile.name,
+    userId: donaldTrump._id,
+    author: donaldTrump.profile.name,
     url: 'http://themeteorbook.com',
     submitted: new Date(now - 12 * 3600 * 1000)
   });
