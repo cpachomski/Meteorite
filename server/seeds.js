@@ -53,4 +53,5 @@ if (Posts.find().count() === 0 ) {
     url: 'http://themeteorbook.com',
     submitted: new Date(now - 12 * 3600 * 1000)
   });
+
 }
