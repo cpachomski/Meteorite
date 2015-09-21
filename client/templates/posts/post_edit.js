@@ -1,3 +1,18 @@
+Template.postEdit.created = function() {
+  Session.set('postEditErrors', {});
+}
+
+template.postEdit.helpers({
+  errorMessage: function(field){
+    return Session.get('psotEditErrors')[field];
+  },
+  errorClass: function(field){
+    return !!Session.get('postEditErrors')[field] ? 'has-error' : '';
+  }
+});
+
+
+
 Template.postEdit.events({
   'submit form': function(e) {
     e.preventDefault();
