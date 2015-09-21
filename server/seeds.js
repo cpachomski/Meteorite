@@ -35,7 +35,7 @@ if (Posts.find().count() === 0 ) {
     userId: bobDole._id,
     author: bobDole.profile.name,
     submitted: new Date(now - 3 * 3600 * 1000),
-    body: 'You sure can Tom!'
+    body: 'yeah no shit'
   });
 
   Posts.insert({
