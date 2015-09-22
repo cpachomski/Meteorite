@@ -11,13 +11,13 @@ Template.commentSubmit.helpers({
   }
 })
 
-Template.commenSubmit.events({
+Template.commentSubmit.events({
   'submit form':  function(e, template){
     e.preventDefault();
 
     var $body = $(e.target).find('[name=body]');
     var comment = {
-      body: $boyd.val(),
+      body: $body.val(),
       postId: template.data._id
     };
 
@@ -27,7 +27,8 @@ Template.commenSubmit.events({
       return Session.set('commentSubmit', errors);
     }
 
-    Meteor.call('commentInsert', comment, function(error, commentId){
+    Meteor.call('commentInsert', comment,
+     function(error, commentId){
       if (error){
         throwError(error.reason);
       } else{
